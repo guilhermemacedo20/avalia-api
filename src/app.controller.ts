@@ -10,13 +10,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('users')
-  listUsers() {
-    return this.appService.listUsers();
-  }
-
   @Post('users')
-  createUser(@Body() body: { name: string; email: string }) {
+  createUser(@Body() body: { name: string; email: string; passwordHash: string }) {
     return this.appService.createUser(body);
   }
 }
