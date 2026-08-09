@@ -11,7 +11,9 @@ export class AppController {
   }
 
   @Post('users')
-  createUser(@Body() body: { name: string; email: string; passwordHash: string }) {
+  createUser(
+    @Body() body: { name: string; email: string; passwordHash: string },
+  ) {
     return this.appService.createUser(body);
   }
 }

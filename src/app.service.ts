@@ -13,7 +13,11 @@ export class AppService {
     return this.prisma.user.findMany();
   }
 
-  createUser(data: { name: string; email: string; passwordHash: string }) {
+  createUser(data: {
+    name: string;
+    email: string;
+    passwordHash: string;
+  }): Promise<{ name: string; email: string; passwordHash: string }> {
     return this.prisma.user.create({ data });
   }
 }
