@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "generate:resource": "nest g resource",
@@ -27,8 +27,9 @@
     "prisma:migrate:reset": "prisma migrate reset",
     "prisma:db:push": "prisma db push",
     "prisma:db:pull": "prisma db pull",
-    "db:up": "docker compose up -d db",
-    "db:down": "docker compose stop db",
+    "prisma:seed": "ts-node prisma/seed.ts",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -99,5 +100,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }
