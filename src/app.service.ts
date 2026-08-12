@@ -14,6 +14,7 @@ export class AppService {
   }
 
   createUser(data: { name: string; email: string }) {
-    return this.prisma.user.create({ data });
+    const passwordHash = 'hashed_password';
+    return this.prisma.user.create({ data: { ...data, passwordHash } });
   }
 }
