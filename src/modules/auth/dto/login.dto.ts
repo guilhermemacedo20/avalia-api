@@ -2,9 +2,12 @@ import { Transform } from 'class-transformer';
 import { IsEmail, IsString, MinLength } from 'class-validator';
 
 export class LoginDto {
-  @Transform(({ value }) =>
-    typeof value === 'string' ? value.trim().toLowerCase() : value,
-  )
+  @Transform(({ value }: { value: unknown }) => {
+    if (typeof value === 'string') {
+      return value.trim().toLowerCase();
+    }
+    return value as string;
+  })
   @IsEmail()
   email!: string;
 

@@ -65,6 +65,7 @@ export class AuthService {
 
     // await this. TO-DO: Realizar lógica do envio de e-mail com o código de redefinição de senha
     const userId = user.id;
+    console.info(`Código de redefinição de senha para o usuário ${userId}:`);
     // await this.prisma.passwordResetToken.upsert({
     //   where: { userId },
     //   create: { userId, codeHash, expiresAt },

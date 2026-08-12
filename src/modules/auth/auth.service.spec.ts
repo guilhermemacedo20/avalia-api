@@ -11,7 +11,7 @@ describe('AuthService', () => {
       providers: [
         AuthService,
         { provide: PrismaService, useValue: {} },
-        { provide: JwtService, useValue: { sign: jest.fn() } }
+        { provide: JwtService, useValue: { sign: jest.fn() } },
       ],
     }).compile();
 
