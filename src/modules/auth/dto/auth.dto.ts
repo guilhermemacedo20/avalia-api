@@ -4,6 +4,7 @@ export class LoginDto {
   @IsEmail()
   email!: string;
 
+  @MinLength(8)
   @IsString()
   password!: string;
 }
@@ -23,5 +24,6 @@ export class ResetPasswordDto {
   code!: string;
 
   @IsString()
+  @MinLength(8)
   newPassword!: string;
 }
