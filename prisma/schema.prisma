@@ -18,7 +18,7 @@ model User {
   name               String
   email              String    @unique
   registrationNumber String?   @unique
-  passwordHash       String
+  password       String
   role               Role      @default(STUDENT)
   mustChangePassword Boolean   @default(true)
   createdAt          DateTime  @default(now())
@@ -30,7 +30,7 @@ model User {
 model PasswordResetToken {
   id        String    @id @default(cuid())
   userId    String    @unique
-  codeHash  String
+  code  String
   expiresAt DateTime
   usedAt    DateTime?
   createdAt DateTime  @default(now())
